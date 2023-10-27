@@ -21,3 +21,8 @@ Icon?
 *.svd
 .DS_Store
 /.vs/HamsterVsDinosaurs/v17
+
+# Folder #
+Logs/
+FileContentIndex/
+obj/Debug
