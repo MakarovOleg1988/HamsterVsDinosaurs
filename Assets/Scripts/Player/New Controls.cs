@@ -26,11 +26,11 @@ namespace HamsterVsDinosaurs
     ""name"": ""New Controls"",
     ""maps"": [
         {
-            ""name"": ""New action map"",
+            ""name"": ""NewActionMap"",
             ""id"": ""07f10f68-95f9-4fed-8bc4-de23f222ac02"",
             ""actions"": [
                 {
-                    ""name"": ""MovementUP"",
+                    ""name"": ""MovementUp"",
                     ""type"": ""Value"",
                     ""id"": ""def3a17f-449a-4e29-8361-3b54e55322d2"",
                     ""expectedControlType"": """",
@@ -56,7 +56,7 @@ namespace HamsterVsDinosaurs
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MovementUP"",
+                    ""action"": ""MovementUp"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -67,7 +67,7 @@ namespace HamsterVsDinosaurs
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MovementUP"",
+                    ""action"": ""MovementUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -78,7 +78,7 @@ namespace HamsterVsDinosaurs
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MovementUP"",
+                    ""action"": ""MovementUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -116,45 +116,14 @@ namespace HamsterVsDinosaurs
                     ""isPartOfComposite"": true
                 }
             ]
-        },
-        {
-            ""name"": ""Camera"",
-            ""id"": ""a14fc2a2-f53e-4b03-9c39-8d683b11be7a"",
-            ""actions"": [
-                {
-                    ""name"": ""Delta"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""d47d8097-59b0-40c4-bf0a-84191853564c"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""e99944c1-2097-48ea-a12a-2ca7bde893cf"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Delta"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
         }
     ],
     ""controlSchemes"": []
 }");
-            // New action map
-            m_Newactionmap = asset.FindActionMap("New action map", throwIfNotFound: true);
-            m_Newactionmap_MovementUP = m_Newactionmap.FindAction("MovementUP", throwIfNotFound: true);
-            m_Newactionmap_MovementRight = m_Newactionmap.FindAction("MovementRight", throwIfNotFound: true);
-            // Camera
-            m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
-            m_Camera_Delta = m_Camera.FindAction("Delta", throwIfNotFound: true);
+            // NewActionMap
+            m_NewActionMap = asset.FindActionMap("NewActionMap", throwIfNotFound: true);
+            m_NewActionMap_MovementUp = m_NewActionMap.FindAction("MovementUp", throwIfNotFound: true);
+            m_NewActionMap_MovementRight = m_NewActionMap.FindAction("MovementRight", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -213,113 +182,63 @@ namespace HamsterVsDinosaurs
             return asset.FindBinding(bindingMask, out action);
         }
 
-        // New action map
-        private readonly InputActionMap m_Newactionmap;
-        private List<INewactionmapActions> m_NewactionmapActionsCallbackInterfaces = new List<INewactionmapActions>();
-        private readonly InputAction m_Newactionmap_MovementUP;
-        private readonly InputAction m_Newactionmap_MovementRight;
-        public struct NewactionmapActions
+        // NewActionMap
+        private readonly InputActionMap m_NewActionMap;
+        private List<INewActionMapActions> m_NewActionMapActionsCallbackInterfaces = new List<INewActionMapActions>();
+        private readonly InputAction m_NewActionMap_MovementUp;
+        private readonly InputAction m_NewActionMap_MovementRight;
+        public struct NewActionMapActions
         {
             private @NewControls m_Wrapper;
-            public NewactionmapActions(@NewControls wrapper) { m_Wrapper = wrapper; }
-            public InputAction @MovementUP => m_Wrapper.m_Newactionmap_MovementUP;
-            public InputAction @MovementRight => m_Wrapper.m_Newactionmap_MovementRight;
-            public InputActionMap Get() { return m_Wrapper.m_Newactionmap; }
+            public NewActionMapActions(@NewControls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @MovementUp => m_Wrapper.m_NewActionMap_MovementUp;
+            public InputAction @MovementRight => m_Wrapper.m_NewActionMap_MovementRight;
+            public InputActionMap Get() { return m_Wrapper.m_NewActionMap; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
             public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(NewactionmapActions set) { return set.Get(); }
-            public void AddCallbacks(INewactionmapActions instance)
+            public static implicit operator InputActionMap(NewActionMapActions set) { return set.Get(); }
+            public void AddCallbacks(INewActionMapActions instance)
             {
-                if (instance == null || m_Wrapper.m_NewactionmapActionsCallbackInterfaces.Contains(instance)) return;
-                m_Wrapper.m_NewactionmapActionsCallbackInterfaces.Add(instance);
-                @MovementUP.started += instance.OnMovementUP;
-                @MovementUP.performed += instance.OnMovementUP;
-                @MovementUP.canceled += instance.OnMovementUP;
+                if (instance == null || m_Wrapper.m_NewActionMapActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_NewActionMapActionsCallbackInterfaces.Add(instance);
+                @MovementUp.started += instance.OnMovementUp;
+                @MovementUp.performed += instance.OnMovementUp;
+                @MovementUp.canceled += instance.OnMovementUp;
                 @MovementRight.started += instance.OnMovementRight;
                 @MovementRight.performed += instance.OnMovementRight;
                 @MovementRight.canceled += instance.OnMovementRight;
             }
 
-            private void UnregisterCallbacks(INewactionmapActions instance)
+            private void UnregisterCallbacks(INewActionMapActions instance)
             {
-                @MovementUP.started -= instance.OnMovementUP;
-                @MovementUP.performed -= instance.OnMovementUP;
-                @MovementUP.canceled -= instance.OnMovementUP;
+                @MovementUp.started -= instance.OnMovementUp;
+                @MovementUp.performed -= instance.OnMovementUp;
+                @MovementUp.canceled -= instance.OnMovementUp;
                 @MovementRight.started -= instance.OnMovementRight;
                 @MovementRight.performed -= instance.OnMovementRight;
                 @MovementRight.canceled -= instance.OnMovementRight;
             }
 
-            public void RemoveCallbacks(INewactionmapActions instance)
+            public void RemoveCallbacks(INewActionMapActions instance)
             {
-                if (m_Wrapper.m_NewactionmapActionsCallbackInterfaces.Remove(instance))
+                if (m_Wrapper.m_NewActionMapActionsCallbackInterfaces.Remove(instance))
                     UnregisterCallbacks(instance);
             }
 
-            public void SetCallbacks(INewactionmapActions instance)
+            public void SetCallbacks(INewActionMapActions instance)
             {
-                foreach (var item in m_Wrapper.m_NewactionmapActionsCallbackInterfaces)
+                foreach (var item in m_Wrapper.m_NewActionMapActionsCallbackInterfaces)
                     UnregisterCallbacks(item);
-                m_Wrapper.m_NewactionmapActionsCallbackInterfaces.Clear();
+                m_Wrapper.m_NewActionMapActionsCallbackInterfaces.Clear();
                 AddCallbacks(instance);
             }
         }
-        public NewactionmapActions @Newactionmap => new NewactionmapActions(this);
-
-        // Camera
-        private readonly InputActionMap m_Camera;
-        private List<ICameraActions> m_CameraActionsCallbackInterfaces = new List<ICameraActions>();
-        private readonly InputAction m_Camera_Delta;
-        public struct CameraActions
+        public NewActionMapActions @NewActionMap => new NewActionMapActions(this);
+        public interface INewActionMapActions
         {
-            private @NewControls m_Wrapper;
-            public CameraActions(@NewControls wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Delta => m_Wrapper.m_Camera_Delta;
-            public InputActionMap Get() { return m_Wrapper.m_Camera; }
-            public void Enable() { Get().Enable(); }
-            public void Disable() { Get().Disable(); }
-            public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(CameraActions set) { return set.Get(); }
-            public void AddCallbacks(ICameraActions instance)
-            {
-                if (instance == null || m_Wrapper.m_CameraActionsCallbackInterfaces.Contains(instance)) return;
-                m_Wrapper.m_CameraActionsCallbackInterfaces.Add(instance);
-                @Delta.started += instance.OnDelta;
-                @Delta.performed += instance.OnDelta;
-                @Delta.canceled += instance.OnDelta;
-            }
-
-            private void UnregisterCallbacks(ICameraActions instance)
-            {
-                @Delta.started -= instance.OnDelta;
-                @Delta.performed -= instance.OnDelta;
-                @Delta.canceled -= instance.OnDelta;
-            }
-
-            public void RemoveCallbacks(ICameraActions instance)
-            {
-                if (m_Wrapper.m_CameraActionsCallbackInterfaces.Remove(instance))
-                    UnregisterCallbacks(instance);
-            }
-
-            public void SetCallbacks(ICameraActions instance)
-            {
-                foreach (var item in m_Wrapper.m_CameraActionsCallbackInterfaces)
-                    UnregisterCallbacks(item);
-                m_Wrapper.m_CameraActionsCallbackInterfaces.Clear();
-                AddCallbacks(instance);
-            }
-        }
-        public CameraActions @Camera => new CameraActions(this);
-        public interface INewactionmapActions
-        {
-            void OnMovementUP(InputAction.CallbackContext context);
+            void OnMovementUp(InputAction.CallbackContext context);
             void OnMovementRight(InputAction.CallbackContext context);
-        }
-        public interface ICameraActions
-        {
-            void OnDelta(InputAction.CallbackContext context);
         }
     }
 }

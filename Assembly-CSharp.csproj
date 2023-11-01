@@ -60,10 +60,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\MainDataCharacters.cs" />
-    <Compile Include="Assets\Scripts\Player\CameraAssistant.cs" />
     <Compile Include="Assets\Scripts\PersonController.cs" />
     <Compile Include="Assets\Scripts\Enums.cs" />
+    <Compile Include="Assets\Scripts\Player\MovementMainCharacter.cs" />
     <Compile Include="Assets\Scripts\Player\New Controls.cs" />
+    <Compile Include="Assets\Scripts\Scene\Camera\CameraRotation.cs" />
+    <Compile Include="Assets\Scripts\Scene\Camera\CameraChasing.cs" />
     <Compile Include="Assets\Scripts\Bootstrap.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,11 +2,11 @@
     "name": "New Controls",
     "maps": [
         {
-            "name": "New action map",
+            "name": "NewActionMap",
             "id": "07f10f68-95f9-4fed-8bc4-de23f222ac02",
             "actions": [
                 {
-                    "name": "MovementUP",
+                    "name": "MovementUp",
                     "type": "Value",
                     "id": "def3a17f-449a-4e29-8361-3b54e55322d2",
                     "expectedControlType": "",
@@ -32,7 +32,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MovementUP",
+                    "action": "MovementUp",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -43,7 +43,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MovementUP",
+                    "action": "MovementUp",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -54,7 +54,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MovementUP",
+                    "action": "MovementUp",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -90,34 +90,6 @@
                     "action": "MovementRight",
                     "isComposite": false,
                     "isPartOfComposite": true
-                }
-            ]
-        },
-        {
-            "name": "Camera",
-            "id": "a14fc2a2-f53e-4b03-9c39-8d683b11be7a",
-            "actions": [
-                {
-                    "name": "Delta",
-                    "type": "PassThrough",
-                    "id": "d47d8097-59b0-40c4-bf0a-84191853564c",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "e99944c1-2097-48ea-a12a-2ca7bde893cf",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Delta",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }

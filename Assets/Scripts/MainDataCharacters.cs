@@ -4,7 +4,7 @@ namespace HamsterVsDinosaurs
 {
     public class MainDataCharacters : MonoBehaviour
     {
-        [SerializeField, Range(0.1f,10f)]
+        [SerializeField, Range(-10f,10f)]
         protected float _moveSpeed;
 
         [SerializeField, Range(0.1f, 10f)]

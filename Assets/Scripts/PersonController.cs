@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
 namespace HamsterVsDinosaurs
@@ -25,7 +23,7 @@ namespace HamsterVsDinosaurs
 
         private void StartAnimator()
         {
-            if (_animator.GetBool("IsWalking") == true) return;
+            if (_moveSpeed == 0f) return;
 
             _animator.SetBool("IsWalking", true);
         }
